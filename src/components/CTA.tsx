@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Apple, PlayCircle, Globe } from 'lucide-react';
+import { FAQ } from './FAQ';
 
 export function CTA() {
   return (
@@ -93,6 +94,9 @@ export function CTA() {
             </div>
           </div>
         </motion.div>
+
+        {/* FAQ */}
+        <FAQ />
 
         {/* Footer */}
         <motion.footer
