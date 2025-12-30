@@ -191,7 +191,7 @@ export function InsightsSection() {
                     <span>•</span>
                     <span>{article.date}</span>
                     <span>•</span>
-                    <span>{article.readTime}</span>
+                    {/* <span>{article.readTime}</span> */}
                   </div>
                   <button className="group/btn text-[#028383] text-sm flex items-center gap-2 hover:gap-3 transition-all">
                     Read More
