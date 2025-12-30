@@ -141,7 +141,7 @@ export function InsightsSection() {
                   <Calendar className="w-4 h-4" />
                   <span>{featuredArticle.date}</span>
                 </div>
-                <span>{featuredArticle.readTime}</span>
+                {/* <span>{featuredArticle.readTime}</span> */}
               </div>
               <button className="group text-[#028383] flex items-center gap-2 hover:gap-3 transition-all">
                 Read Full Story

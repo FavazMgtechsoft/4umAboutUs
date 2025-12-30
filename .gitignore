@@ -11,13 +11,7 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# ============================
-# Build output
-# ============================
-dist/
-build/
-out/
-.vite/
+
 
 # ============================
 # Environment variables
