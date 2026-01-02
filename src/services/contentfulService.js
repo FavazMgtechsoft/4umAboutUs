@@ -242,6 +242,7 @@ export const fetchFaqs = async () => {
       answer: item.fields.answers,
     }));
 
+    
     return { success: true, data: faqs };
   } catch (e) {
     return { success: false, error: e.message, data: [] };
