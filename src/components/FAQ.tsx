@@ -1,49 +1,259 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, ChevronUp } from "lucide-react";
+// import { useEffect, useState } from 'react';
+// import { motion, AnimatePresence } from 'framer-motion';
+// import { ChevronDown, ChevronUp, Loader2, AlertCircle } from 'lucide-react';
+// import { fetchFaqs } from '../services/contentfulService';
+// import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+// import { BLOCKS } from '@contentful/rich-text-types';
 
-const faqs = [
-  {
-    question: "What is 4um?",
-    answer:
-      "4um is a community-first social platform built to help people connect, share ideas, and express creativity without algorithm-driven manipulation.",
-  },
-  {
-    question: "Is 4um free to use?",
-    answer:
-      "Yes, 4um is completely free to join and use. We aim to keep the core experience accessible to everyone while building sustainable features for the future.",
-  },
-  {
-    question: "What type of content can I share?",
-    answer:
-      "You can share text posts, images, videos, stories, and more. 4um supports multiple content formats so creators and users can express themselves freely across different mediums.",
-  },
-  {
-    question: "How does 4um protect user safety?",
-    answer:
-      "We use a combination of community guidelines, reporting tools, and moderation systems to ensure a safe, respectful, and inclusive environment for all users.",
-  },
-  {
-    question: "Will 4um use algorithms to control my feed?",
-    answer:
-      "No. 4um does not use opaque algorithms to manipulate what you see. Your feed is driven by real connections and content you choose to follow.",
-  },
-];
+
+// export function FAQ() {
+//   const [faqs, setFaqs] = useState([]);
+//   const [loading, setLoading] = useState(true);
+//   const [error, setError] = useState(null);
+//   const [openIndex, setOpenIndex] = useState(null);
+//   const [expandedAnswers, setExpandedAnswers] = useState({});
+
+//   useEffect(() => {
+//     loadFaqs();
+//   }, []);
+
+//   const loadFaqs = async () => {
+//     setLoading(true);
+//     setError(null);
+
+//     const result = await fetchFaqs();
+
+//     if (result.success) setFaqs(result.data);
+//     else setError(result.error);
+
+//     setLoading(false);
+//   };
+
+//   const toggle = (index) => setOpenIndex(openIndex === index ? null : index);
+// const richTextOptions = {
+//   renderNode: {
+//     [BLOCKS.UL_LIST]: (_, children) => (
+//       <ul
+//         style={{
+//           listStyleType: 'disc',
+//           paddingLeft: '1.25rem',
+//           marginTop: '0.5rem',
+//           marginBottom: '0.5rem',
+//         }}
+//       >
+//         {children}
+//       </ul>
+//     ),
+//     [BLOCKS.OL_LIST]: (_, children) => (
+//       <ol
+//         style={{
+//           listStyleType: 'decimal',
+//           paddingLeft: '1.25rem',
+//           marginTop: '0.5rem',
+//           marginBottom: '0.5rem',
+//         }}
+//       >
+//         {children}
+//       </ol>
+//     ),
+//     [BLOCKS.LIST_ITEM]: (_, children) => (
+//       <li style={{ display: 'list-item', marginLeft: '0.25rem' }}>{children}</li>
+//     ),
+//   },
+// };
+
+//   const toggleReadMore = (index) =>
+//     setExpandedAnswers((prev) => ({ ...prev, [index]: !prev[index] }));
+
+
+//   if (loading) {
+//     return (
+//       <section className="py-16 sm:py-24 bg-white flex justify-center">
+//         <div className="text-center">
+//           <Loader2 className="w-10 h-10 text-[#028383] animate-spin mb-3 mx-auto" />
+//           <p className="text-gray-600">Loading FAQs...</p>
+//         </div>
+//       </section>
+//     );
+//   }
+
+//   if (error) {
+//     return (
+//       <section className="py-16 sm:py-24 bg-white flex justify-center">
+//         <div className="text-center">
+//           <AlertCircle className="w-10 h-10 text-red-500 mb-3 mx-auto" />
+//           <p className="text-gray-900 font-semibold mb-1">Failed to load FAQs</p>
+//           <p className="text-gray-600 mb-3">{error}</p>
+//           <button onClick={loadFaqs} className="px-5 py-2 bg-[#028383] text-white rounded-full">
+//             Try Again
+//           </button>
+//         </div>
+//       </section>
+//     );
+//   }
+
+//   if (faqs.length === 0) {
+//     return (
+//       <section className="py-16 sm:py-24 bg-white text-center">
+//         <p className="text-gray-600">No FAQs available.</p>
+//       </section>
+//     );
+//   }
+
+//   return (
+//     <section className="py-16 sm:py-24 bg-white">
+//       <div className="max-w-4xl mx-auto px-4 sm:px-6">
+//         <h2 className="text-center mb-10 text-gray-900">Frequently Asked Questions</h2>
+
+//         <div className="space-y-4">
+//           {faqs.map((faq, index) => {
+//             const isOpen = openIndex === index;
+//             const isExpanded = expandedAnswers[index];
+
+//             return (
+//               <div
+//                 key={faq.id}
+//                 className="border"
+//                 style={{ borderColor: '#028383', borderRadius: '15px', padding: '0 10px' }}
+//               >
+//                 <button
+//                   onClick={() => toggle(index)}
+//                   className="w-full flex justify-between items-center px-5 py-4 text-left"
+//                 >
+//                   <span className="text-gray-900">{faq.question}</span>
+//                   {isOpen ? <ChevronUp className="w-5 h-5 text-[#028383]" /> : <ChevronDown className="w-5 h-5 text-[#028383]" />}
+//                 </button>
+
+//                 <AnimatePresence>
+//                   {isOpen && (
+//                     <motion.div
+//                       initial={{ height: 0, opacity: 0 }}
+//                       animate={{ height: 'auto', opacity: 1 }}
+//                       exit={{ height: 0, opacity: 0 }}
+//                       transition={{ duration: 0.3 }}
+//                       className="overflow-hidden"
+//                     >
+//                       <div className="px-5 pb-4 text-gray-600 text-sm leading-relaxed">
+//                         <div className={!isExpanded ? 'line-clamp-2' : ''}>
+//                           {documentToReactComponents(faq.answer, richTextOptions)}
+//                         </div>
+//                         <button onClick={() => toggleReadMore(index)} className="mt-2 text-sm underline text-[#028383]">
+//                           {isExpanded ? 'Show less' : 'Show more'}
+//                         </button>
+//                       </div>
+//                     </motion.div>
+//                   )}
+//                 </AnimatePresence>
+//               </div>
+//             );
+//           })}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+import { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown, ChevronUp, Loader2, AlertCircle } from 'lucide-react';
+import { fetchFaqs } from '../services/contentfulService';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { BLOCKS } from '@contentful/rich-text-types';
+
 
 export function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const [expandedAnswers, setExpandedAnswers] = useState<Record<number, boolean>>({});
+  const [faqs, setFaqs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [openIndex, setOpenIndex] = useState(null);
+  const [expandedAnswers, setExpandedAnswers] = useState({});
 
-  const toggle = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
+  useEffect(() => {
+    loadFaqs();
+  }, []);
+
+  const loadFaqs = async () => {
+    setLoading(true);
+    setError(null);
+
+    const result = await fetchFaqs();
+
+    if (result.success) setFaqs(result.data);
+    else setError(result.error);
+
+    setLoading(false);
   };
 
-  const toggleReadMore = (index: number) => {
-    setExpandedAnswers((prev) => ({
-      ...prev,
-      [index]: !prev[index],
-    }));
+  const toggle = (index) => setOpenIndex(openIndex === index ? null : index);
+  
+  const richTextOptions = {
+    renderNode: {
+      [BLOCKS.UL_LIST]: (_, children) => (
+        <ul
+          style={{
+            listStyleType: 'disc',
+            paddingLeft: '1.25rem',
+            marginTop: '0.5rem',
+            marginBottom: '0.5rem',
+          }}
+        >
+          {children}
+        </ul>
+      ),
+      [BLOCKS.OL_LIST]: (_, children) => (
+        <ol
+          style={{
+            listStyleType: 'decimal',
+            paddingLeft: '1.25rem',
+            marginTop: '0.5rem',
+            marginBottom: '0.5rem',
+          }}
+        >
+          {children}
+        </ol>
+      ),
+      [BLOCKS.LIST_ITEM]: (_, children) => (
+        <li style={{ display: 'list-item', marginLeft: '0.25rem' }}>{children}</li>
+      ),
+    },
   };
+
+  const toggleReadMore = (index) =>
+    setExpandedAnswers((prev) => ({ ...prev, [index]: !prev[index] }));
+
+
+  if (loading) {
+    return (
+      <section className="py-16 sm:py-24 bg-white flex justify-center">
+        <div className="text-center">
+          <Loader2 className="w-10 h-10 text-[#028383] animate-spin mb-3 mx-auto" />
+          <p className="text-gray-600">Loading FAQs...</p>
+        </div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className="py-16 sm:py-24 bg-white flex justify-center">
+        <div className="text-center">
+          <AlertCircle className="w-10 h-10 text-red-500 mb-3 mx-auto" />
+          <p className="text-gray-900 font-semibold mb-1">Failed to load FAQs</p>
+          <p className="text-gray-600 mb-3">{error}</p>
+          <button onClick={loadFaqs} className="px-5 py-2 bg-[#028383] text-white rounded-full">
+            Try Again
+          </button>
+        </div>
+      </section>
+    );
+  }
+
+  if (faqs.length === 0) {
+    return (
+      <section className="py-16 sm:py-24 bg-white text-center">
+        <p className="text-gray-600">No FAQs available.</p>
+      </section>
+    );
+  }
 
   return (
     <section className="py-16 sm:py-24 bg-white">
@@ -57,54 +267,46 @@ export function FAQ() {
 
             return (
               <div
-                key={index}
+                key={faq.id}
                 className="border"
-                style={{
-                  borderColor: "#028383",
-                  borderRadius: "15px",
-                  paddingLeft:'10px',
-                  paddingRight:'10px',
-                }}
+                style={{ borderColor: '#028383', borderRadius: '15px', padding: '0 10px' }}
               >
                 <button
                   onClick={() => toggle(index)}
                   className="w-full flex justify-between items-center px-5 py-4 text-left"
                 >
                   <span className="text-gray-900">{faq.question}</span>
-                  {isOpen ? (
-                    <ChevronUp className="w-5 h-5 text-[#028383]" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5 text-[#028383]" />
-                  )}
+                  {isOpen ? <ChevronUp className="w-5 h-5 text-[#028383]" /> : <ChevronDown className="w-5 h-5 text-[#028383]" />}
                 </button>
 
                 <AnimatePresence>
                   {isOpen && (
                     <motion.div
                       initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
+                      animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
                       className="overflow-hidden"
                     >
                       <div className="px-5 pb-4 text-gray-600 text-sm leading-relaxed">
-                        <p
-                          className={
-                            !isExpanded
-                              ? "line-clamp-2"
-                              : ""
-                          }
+                        <div 
+                          ref={(el) => {
+                            if (el && !expandedAnswers.hasOwnProperty(index)) {
+                              const lineHeight = parseFloat(getComputedStyle(el).lineHeight);
+                              const height = el.scrollHeight;
+                              const lines = Math.round(height / lineHeight);
+                              if (lines > 2) {
+                                setExpandedAnswers((prev) => ({ ...prev, [index]: false }));
+                              }
+                            }
+                          }}
+                          className={!isExpanded && expandedAnswers.hasOwnProperty(index) ? 'line-clamp-2' : ''}
                         >
-                          {faq.answer}
-                        </p>
-
-                        {faq.answer.length > 120 && (
-                          <button
-                            onClick={() => toggleReadMore(index)}
-                            className="mt-2 text-sm underline"
-                            style={{ color: "#028383" }}
-                          >
-                            {isExpanded ? "Show less" : "Show more"}
+                          {documentToReactComponents(faq.answer, richTextOptions)}
+                        </div>
+                        {expandedAnswers.hasOwnProperty(index) && (
+                          <button onClick={() => toggleReadMore(index)} className="mt-2 text-sm underline text-[#028383]">
+                            {isExpanded ? 'Show less' : 'Show more'}
                           </button>
                         )}
                       </div>
