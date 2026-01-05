@@ -59,6 +59,12 @@ export function Navigation() {
             >
               Insights
             </button>
+              <button
+              onClick={() => scrollToSection('faq')}
+              className="text-gray-700 hover:text-[#028383] transition-colors"
+            >
+              FAQs
+            </button>
             <button
               onClick={() => scrollToSection('cta')}
               className="bg-[#028383] text-white px-6 py-2.5 rounded-full hover:bg-[#016969] transition-colors"
@@ -108,6 +114,12 @@ export function Navigation() {
               className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
             >
               Insights
+            </button>
+            <button
+              onClick={() => scrollToSection('faq')}
+              className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
+            >
+              FAQs
             </button>
             <button
               onClick={() => scrollToSection('cta')}
