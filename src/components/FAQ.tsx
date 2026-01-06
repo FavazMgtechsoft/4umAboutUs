@@ -102,7 +102,7 @@ export function FAQ() {
   }
 
   return (
-    <section id="faq" className="py-16 sm:py-24 bg-white">
+    <section id="faq" className="py-2 sm:py-2 bg-white" style={{paddingTop:'200px'}}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <h2 className="text-center mb-10 text-gray-900">Frequently Asked Questions</h2>
 
@@ -163,6 +163,9 @@ export function FAQ() {
             );
           })}
         </div>
+      </div>
+      <div>
+        <p className="text-center text-gray-500 text-sm mt-8" style={{borderTop:'1px solid #d9d9d9',paddingTop:'20px'}}>© 2024 4um. All rights reserved.</p>
       </div>
     </section>
   );

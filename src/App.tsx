@@ -9,20 +9,23 @@ import { Future } from './components/Future';
 import { CTA } from './components/CTA';
 import { Navigation } from './components/Navigation';
 import BlogReadingPage from './pages/BlogReadingPage';
+import { FAQ } from './components/FAQ';
 
 // Landing Page Component
 function LandingPage() {
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
-      <Hero />
+      <CTA />
+      {/* <Hero /> */}
       <WhatIs4um />
-      <MissionVision />
-      <Why4um />
-      <Community />
+      {/* <MissionVision /> */}
+      {/* <Why4um /> */}
+      {/* <Community /> */}
       <InsightsSection />
       {/* <Future /> */}
-      <CTA />
+              {/* FAQ */}
+        <FAQ />
     </div>
   );
 }

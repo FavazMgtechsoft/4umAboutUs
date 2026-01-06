@@ -4,7 +4,7 @@ import { Smartphone, Zap, Heart } from 'lucide-react';
 
 export function WhatIs4um() {
   return (
-    <section id="what-is" className="py-16 sm:py-24 lg:py-32 bg-white">
+    <section id="what-is" className="pt-16 sm:pt-24 lg:pt-32 pb-10 bg-white " style={{paddingTop:'186px'}}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -16,9 +16,7 @@ export function WhatIs4um() {
           <span className="text-[#028383] uppercase tracking-wider text-sm">Platform</span>
           <h2 className="mt-3 sm:mt-4 text-gray-900 mb-4 sm:mb-6">What is 4um?</h2>
           <p className="text-gray-600 max-w-3xl mx-auto">
-            4um is more than just a social media platform. It's a space where communities form,
-            creators thrive, and connections are genuine. Share your world through images,
-            videos, and stories while discovering content that matters to you.
+          4UM is a community-driven social platform where students, creators, and young professionals come together to share ideas, opinions, and conversations around topics that matter to them.
           </p>
         </motion.div>
 

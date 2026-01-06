@@ -90,7 +90,7 @@ export function InsightsSection() {
   const gridArticles = articles.slice(1);
 
   return (
-    <section id="insights" className="py-16 sm:py-24 lg:py-32 bg-white">
+    <section id="insights" className="pt-16 sm:pt-24 lg:pt-32 pb-10 bg-white" style={{paddingTop:'186px'}}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -204,7 +204,7 @@ export function InsightsSection() {
         )}
 
         {/* View All Button */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
@@ -214,7 +214,7 @@ export function InsightsSection() {
           <button className="px-8 py-4 border-2 border-[#028383] text-[#028383] rounded-full hover:bg-[#028383] hover:text-white transition-all duration-300">
             View All Insights
           </button>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

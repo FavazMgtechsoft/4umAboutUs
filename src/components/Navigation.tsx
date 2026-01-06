@@ -41,7 +41,7 @@ export function Navigation() {
             >
               What is 4um
             </button>
-            <button
+            {/* <button
               onClick={() => scrollToSection('mission')}
               className="text-gray-700 hover:text-[#028383] transition-colors"
             >
@@ -52,7 +52,7 @@ export function Navigation() {
               className="text-gray-700 hover:text-[#028383] transition-colors"
             >
               Community
-            </button>
+            </button> */}
             <button
               onClick={() => scrollToSection('insights')}
               className="text-gray-700 hover:text-[#028383] transition-colors"
@@ -65,12 +65,12 @@ export function Navigation() {
             >
               FAQs
             </button>
-            <button
+            {/* <button
               onClick={() => scrollToSection('cta')}
               className="bg-[#028383] text-white px-6 py-2.5 rounded-full hover:bg-[#016969] transition-colors"
             >
               Join 4um
-            </button>
+            </button> */}
           </div>
 
           {/* Mobile Menu Button */}
@@ -97,7 +97,7 @@ export function Navigation() {
             >
               What is 4um
             </button>
-            <button
+            {/* <button
               onClick={() => scrollToSection('mission')}
               className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
             >
@@ -108,7 +108,7 @@ export function Navigation() {
               className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
             >
               Community
-            </button>
+            </button> */}
             <button
               onClick={() => scrollToSection('insights')}
               className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
@@ -121,12 +121,12 @@ export function Navigation() {
             >
               FAQs
             </button>
-            <button
+            {/* <button
               onClick={() => scrollToSection('cta')}
               className="block w-full bg-[#028383] text-white px-6 py-2.5 rounded-full hover:bg-[#016969] transition-colors mt-2"
             >
               Join 4um
-            </button>
+            </button> */}
           </div>
         </div>
       )}
