@@ -3,14 +3,12 @@ import { ArrowRight, Apple, PlayCircle, Globe } from 'lucide-react';
 
 export function CTA() {
   return (
-    // <section id="cta" className="py-16 sm:py-24 lg:py-32 bg-white relative overflow-hidden" style={{ display:'flex',position:'fixed',width:'100%',zIndex:9 }}>
     <section id="cta" className="bg-white relative overflow-hidden" style={{ display:'flex',position:'fixed',width:'100%',zIndex:9,marginTop:'80px' }}>
 
       {/* Background Decorations */}
       <div className="absolute top-0 left-0 w-64 sm:w-96 h-64 sm:h-96 bg-[#028383]/10 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-0 w-64 sm:w-96 h-64 sm:h-96 bg-teal-300/20 rounded-full blur-3xl" />
       
-      {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10" style={{width:'100%'}}> */}
       <div className="relative z-10" style={{width:'100%'}}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}

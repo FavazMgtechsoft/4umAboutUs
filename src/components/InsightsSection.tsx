@@ -170,10 +170,15 @@ export function InsightsSection() {
                     alt={article.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-3 sm:top-4 left-3 sm:left-4">
+                  {/* <div className="absolute top-3 sm:top-4 left-3 sm:left-4">
                     <span className="px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-full text-xs text-[#028383]">
                       {article.category}
                     </span>
+                  </div> */}
+                   <div style={{display:'flex',alignItems:'end',justifyContent:'end',marginTop:'-10px'}}>
+                  <div style={{background:"white",padding:'5px 10px',fontWeight:'700'}} className="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm text-[#028383] px-3 py-1 rounded-full text-xs font-medium shadow-md">
+                    {article.category}
+                  </div>
                   </div>
                 </div>
                 <div className="p-5 sm:p-6">
